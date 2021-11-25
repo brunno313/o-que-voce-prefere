@@ -3,7 +3,10 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  twitter: {
+    bearerToken: 'AAAAAAAAAAAAAAAAAAAAAIyjWAEAAAAArJKIW7r7Qo6m9cUb%2Bermz8MDnjE%3DlJ2fDhRS40HAgMNNRtN8UbgpHiMNRpOZQ7nF5wwGNgFfkzKYKU'
+  }
 };
 
 /*
