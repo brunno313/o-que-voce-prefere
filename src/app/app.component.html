@@ -1,12 +1,19 @@
-<ng-container *ngIf="tweets$ | async; let tweets">
-  <div style="display:flex; align-items: center; justify-content: center; flex-wrap: wrap;">
-    <img *ngFor="let tweet of tweets.media" [src]="tweet.url" style="width: 20%;" [id]="tweet.media_key">
-  </div>
+<div class="container">
+  <ng-container *ngIf="loading">
+    <audio autoplay src="../assets/twerk.mp3">
+    </audio>
+    <img src="../assets/images/twerk.gif" class="question-loading">
+  </ng-container>
 
-  <div style="text-align: center; font-size: 20px;">
-    <button *ngIf="!!tweets?.meta?.next_token"
-      (click)="getNextTweets(tweets.meta.next_token)">
-      Próximo
-    </button>
+  <ng-container *ngIf="question$ | async; let question">
+    <ng-container *ngIf="!loading">
+      <h1 class="title">O que você prefere?</h1>
+
+      <img [id]="question.media_key" [src]="question.url" class="question-image">
+    </ng-container>
+  </ng-container>
+
+  <div *ngIf="!loading" class="button">
+    <button (click)="getQuestion()">Sortear!</button>
   </div>
-</ng-container>
+</div>
